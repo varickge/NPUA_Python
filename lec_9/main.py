@@ -1,16 +1,10 @@
 import random
 
 class Matrix:
-    def __init__(self, rows, cols, values=None):
+    def __init__(self, rows, cols):
         self.rows = rows
         self.cols = cols
-        if values is None:
-            self.values = [[random.randint(-10, 10) for _ in range(cols)] for _ in range(rows)]
-        else:
-            self.values = values
-
-        if len(self.values) != rows or any(len(row) != cols for row in self.values):
-            raise ValueError("Matrix dimensions do not match the specified rows and columns.")
+        self.values = [[random.randint(-10, 10) for _ in range(cols)] for _ in range(rows)]
 
     def __str__(self):
         return '\n'.join([' '.join(map(str, row)) for row in self.values])
